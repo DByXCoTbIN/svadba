@@ -594,6 +594,7 @@ hr {
     display: inline;
     text-align: center;
     width: -webkit-fill-available;
+    max-width: min-content;
 }
 
 .delay-1 { transition-delay: 0.1s; }
