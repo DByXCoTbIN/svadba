@@ -1,0 +1,699 @@
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+* {
+    font-family: 'Caveat', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #faf3e8;
+    font-family: 'Inter', sans-serif;
+    color: #2e241f;
+    line-height: 1.45;
+    padding: 2rem 1rem;
+    overflow-x: hidden;
+    min-height: 100vh;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+/* ===== ТЕКСТУРА ПЕРГАМЕНТА ===== */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background:
+        url('img/background/papper.jpg') repeat,
+        radial-gradient(ellipse at 20% 30%, rgba(232, 210, 180, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, rgba(210, 180, 150, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 50%, rgba(250, 240, 220, 0.3) 0%, transparent 70%);
+    background-blend-mode: multiply, normal, normal, normal;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== КАРТОЧКИ ===== */
+.invitation-card {
+    background: #fffef7;
+    border-radius: 32px;
+    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
+    padding: 2rem;
+    margin-bottom: 1.2rem;
+    transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+.invitation-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 28px 56px -10px rgba(0,0,0,0.2);
+}
+.invitation-card:active {
+    transform: translateY(-1px) scale(0.985);
+    box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Мягкое свечение пергамента */
+.parchment-glow {
+    position: relative;
+}
+.parchment-glow::after {
+    content: "";
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    border-radius: 34px;
+    background: linear-gradient(135deg, rgba(232, 200, 160, 0.25), rgba(210, 170, 130, 0.1), rgba(232, 200, 160, 0.2));
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+    filter: blur(8px);
+}
+
+/* Декоративное сердечко в углу карточки */
+.card-deco-heart {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 1.6rem;
+    color: rgba(200, 140, 100, 0.15);
+    pointer-events: none;
+    z-index: 1;
+    animation: gentlePulse 4s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+    0%, 100% { transform: scale(1) rotate(-5deg); opacity: 0.12; }
+    50% { transform: scale(1.1) rotate(5deg); opacity: 0.22; }
+}
+
+/* Декоративные уголки */
+.corner-deco {
+    position: relative;
+}
+.corner-deco::before, .corner-deco::after {
+    display: none;
+    content: "";
+    position: absolute;
+    width: 40px; height: 40px;
+    border-color: #e2c7ae;
+    border-style: solid;
+    pointer-events: none;
+}
+.corner-deco::before {
+    top: 12px; left: 12px;
+    border-top-width: 2px;
+    border-left-width: 2px;
+}
+.corner-deco::after {
+    bottom: 12px; right: 12px;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+}
+
+/* ===== ТИПОГРАФИКА ===== */
+h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #b45a3b;
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #7e4c2e;
+    border-left: 5px solid #e6bc9a;
+    padding-left: 1rem;
+    margin: 1.2rem 0 1rem;
+}
+
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #b26b42;
+    margin: 0.8rem 0 0.5rem;
+}
+
+/* ===== ИЗОБРАЖЕНИЯ ===== */
+.main-img, .para {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 24px;
+    display: block;
+    margin: 0 auto 1.5rem;
+    object-fit: cover;
+    box-shadow: 0 12px 24px -8px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    height: auto;
+}
+.main-img {
+    filter: drop-shadow(0 0 3px #800020) drop-shadow(0 0 3px #800020) drop-shadow(0 0 3px #800020) drop-shadow(0 0 2px #800020);
+}
+.main-img:hover, .para:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 32px -8px rgba(0,0,0,0.25);
+}
+
+/* ===== БЛОКИ КОНТЕНТА ===== */
+.taplink-line {
+    text-align: center;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    background: #f5ede3;
+    display: inline-block;
+    padding: 0.3rem 1.2rem;
+    border-radius: 40px;
+    margin-bottom: 1rem;
+    font-family: monospace;
+}
+.taplink-line a {
+    color: #a5714a;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dotted;
+    transition: color 0.2s;
+}
+.taplink-line a:hover {
+    color: #c97d4f;
+}
+
+.love-big-quote {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    text-align: center;
+    color: #c77b53;
+    background: #fff5ec;
+    border-radius: 60px;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    margin: 0 auto 1rem;
+}
+
+.invite-text {
+    font-size: 1.15rem;
+    text-align: center;
+    max-width: 85%;
+    margin: 0.5rem auto;
+    font-weight: 500;
+    color: #3b2a1f;
+}
+
+/* ===== КАЛЕНДАРЬ ===== */
+.calendar-block {
+    background: #fffaf3;
+    border-radius: 28px;
+    padding: 0.8rem 0.5rem;
+    margin: 1.5rem 0;
+    box-shadow: inset 0 1px 4px #f0e2d4, 0 10px 18px rgba(0,0,0,0.03);
+}
+.month {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #b9673a;
+    margin-bottom: 0.5rem;
+}
+.calendar-table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.calendar-table th {
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.7rem 0;
+    color: #b1784d;
+    background: #fef2e8;
+}
+.calendar-table td {
+    padding: 0.6rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4a3322;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+.calendar-table td:hover:not(.highlight) {
+    background: rgba(231,190,155,0.2);
+    cursor: default;
+}
+.calendar-table .highlight {
+    padding: 0.3rem 0;
+}
+.calendar-table .highlight span {
+    background: #e7be9b;
+    color: #2f1d12;
+    font-weight: 700;
+    border-radius: 50%;
+    display: inline-block;
+    width: 38px; height: 38px;
+    line-height: 38px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    animation: calendarPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes calendarPulse {
+    0%, 100% { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    50% { box-shadow: 0 4px 14px rgba(200, 140, 90, 0.35); }
+}
+
+.iloveyou {
+    font-family: 'Caveat', cursive;
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+    color: #be6e46;
+}
+
+/* ===== АДРЕС ===== */
+.address-block {
+    background: #fef3ea;
+    padding: 1rem 1.5rem;
+    border-radius: 1.8rem;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.map-link {
+    background: #d8b48b;
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.map-link:hover {
+    transform: scale(1.06);
+    box-shadow: 0 8px 24px rgba(216,180,139,0.45);
+}
+.map-link:active {
+    transform: scale(0.96);
+    box-shadow: 0 3px 10px rgba(216,180,139,0.3);
+}
+.btn-copy {
+    background: none;
+    border: 1px solid #e1c3ad;
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    color: #a5714a;
+    font-family: inherit;
+}
+.btn-copy:hover {
+    background: #f5e6d8;
+    transform: scale(1.06);
+}
+.btn-copy:active {
+    transform: scale(0.94);
+    background: #ebd5c1;
+}
+
+/* ===== ИСТОРИЯ ===== */
+.story-grid {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+.story-text {
+    flex: 2;
+    background: #fef7f0;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    min-width: 280px;
+}
+.story-quote {
+    flex: 1;
+    background: #fcecdd;
+    border-radius: 2rem;
+    padding: 1rem;
+    text-align: center;
+    min-width: 200px;
+}
+
+/* ===== ПОЖЕЛАНИЯ ===== */
+.wish-card {
+    background: #fdf3e9;
+    border-left: 6px solid #ecc6a8;
+    padding: 1rem 1.5rem;
+    border-radius: 1.5rem;
+    margin: 1.2rem 0;
+}
+.gorko-note {
+    background: #ffefe5;
+    border-radius: 1.5rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+.wine-collect {
+    background: #fff2e6;
+    border-radius: 1.5rem;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+}
+
+/* ===== РАСПИСАНИЕ ===== */
+.timeline {
+    margin: 1rem 0;
+}
+.timeline-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px dashed #edd9c8;
+    transition: background 0.45s cubic-bezier(0.22, 1, 0.36, 1), padding 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.timeline-row:hover {
+    background: rgba(255,250,243,0.9);
+    border-radius: 12px;
+    padding-left: 1rem;
+    transform: translateX(4px);
+}
+.timeline-row:active {
+    transform: translateX(4px) scale(0.98);
+    transition: transform 0.12s ease;
+}
+.time {
+    font-weight: 800;
+    min-width: 85px;
+    font-size: 1.1rem;
+    color: #aa6a42;
+}
+
+/* ===== ДРЕСС-КОД ===== */
+.dress-palette {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+.color-circle {
+    width: 55px; height: 55px;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    border: 2px solid white;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+.color-circle:hover {
+    transform: scale(1.15);
+}
+.color-circle:hover .color-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+.color-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: rgba(60, 40, 25, 0.85);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 10;
+}
+
+/* ===== ФУТЕР ===== */
+.page-placeholder {
+    text-align: center;
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #c29a74;
+    margin-top: 1.2rem;
+    letter-spacing: 2px;
+}
+.signature {
+    text-align: center;
+    margin-top: 1.8rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    color: #b4582c;
+}
+hr {
+    margin: 1rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #f0dbc8, transparent);
+}
+
+/* ===== ПЛАВАЮЩИЕ СЕРДЕЧКИ ===== */
+.hearts-layer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+@keyframes floatUp1 {
+    0% { transform: translateY(100vh) rotate(0deg) scale(0.4); opacity: 0; }
+    8% { opacity: 0.35; }
+    92% { opacity: 0.2; }
+    100% { transform: translateY(-15vh) rotate(300deg) scale(1); opacity: 0; }
+}
+@keyframes floatUp2 {
+    0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.15; }
+    100% { transform: translateY(-10vh) rotate(-250deg) scale(0.9); opacity: 0; }
+}
+@keyframes floatUp3 {
+    0% { transform: translateY(100vh) rotate(0deg) scale(0.6); opacity: 0; }
+    12% { opacity: 0.25; }
+    88% { opacity: 0.1; }
+    100% { transform: translateY(-20vh) rotate(180deg) scale(1.1); opacity: 0; }
+}
+
+/* ===== АНИМАЦИИ ПОЯВЛЕНИЯ ===== */
+.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-rotate {
+    will-change: opacity, transform;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.reveal-blur {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), filter 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-blur.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+.reveal-rotate {
+    opacity: 0;
+    transform: rotate(-3deg) translateY(30px) scale(0.95);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-rotate.visible {
+    opacity: 1;
+    transform: rotate(0) translateY(0) scale(1);
+}
+
+.text_block {
+    display: block;
+    text-align: center;
+}
+
+.loving {
+    display: inline;
+    text-align: center;
+    width: -webkit-fill-available;
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.35s; }
+.delay-4 { transition-delay: 0.5s; }
+.delay-5 { transition-delay: 0.65s; }
+
+/* Пульсация сердечек */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.1); }
+}
+.heartbeat {
+    animation: heartbeat 2s ease-in-out infinite;
+    display: inline-block;
+    will-change: transform;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .reveal, .reveal-left, .reveal-right, .reveal-scale {
+        opacity: 1;
+        transform: none;
+    }
+    .hearts-layer { display: none; }
+}
+
+/* ===== СЕНСОРНОЕ ВЗАИМОДЕЙСТВИЕ ===== */
+.invitation-card.touched {
+    transform: scale(0.98);
+    box-shadow: 0 12px 28px -8px rgba(0,0,0,0.18);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.map-link.touched {
+    transform: scale(0.95);
+    transition: transform 0.15s ease;
+}
+.btn-copy.touched {
+    transform: scale(0.94);
+    background: #ebd5c1;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+.color-circle.touched {
+    transform: scale(1.08);
+    transition: transform 0.15s ease;
+}
+
+/* Ripple эффект — сердечко при нажатии */
+.ripple {
+    position: absolute;
+    pointer-events: none;
+    font-size: 1.3rem;
+    color: rgba(128, 0, 32, 0.4);
+    transform-origin: center;
+    line-height: 1;
+    display: block;
+    transform: scale(0) rotate(-10deg);
+    animation: heartRipple 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.ripple::before {
+    content: "♥";
+}
+@keyframes heartRipple {
+    0% { transform: scale(0) rotate(-10deg); opacity: 0.6; }
+    30% { opacity: 0.4; }
+    100% { transform: scale(3.5) rotate(10deg); opacity: 0; }
+}
+
+/* ===== БОЛЬШИЕ ЭКРАНЫ ===== */
+@media (min-width: 1400px) {
+    .container { max-width: 1200px; }
+    body { padding: 3rem 2rem; }
+    h1 { font-size: 3.8rem; }
+    h2 { font-size: 2rem; }
+    .love-big-quote { font-size: 2.6rem; }
+    .invite-text { font-size: 1.3rem; max-width: 75%; }
+    .invitation-card { padding: 2.5rem; margin-bottom: 1.5rem; }
+    .main-img, .para { border-radius: 28px; }
+    .timeline-row { padding: 0.8rem 0; }
+    .time { font-size: 1.2rem; min-width: 100px; }
+    .color-circle { width: 65px; height: 65px; }
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 680px) {
+    .invitation-card { padding: 1.3rem; }
+    h1 { font-size: 2.4rem; }
+    .love-big-quote { font-size: 1.6rem; }
+    .invite-text { max-width: 100%; font-size: 1rem; }
+    .timeline-row { flex-direction: column; gap: 0.2rem; }
+    .time { min-width: auto; }
+    .story-grid { flex-direction: column; }
+    .address-block { flex-direction: column; align-items: flex-start; }
+    .card-deco-heart { font-size: 1.2rem; top: 10px; right: 12px; }
+}

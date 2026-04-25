@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Приглашение на свадьбу Лизы и Кости — 17 июня 2026 года">
+    <meta name="theme-color" content="#faf3e8">
+    <title>Приглашение | Лиза & Костя | Свадьба</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Caveat:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Плавающие декоративные сердечки -->
+    <div class="hearts-layer" aria-hidden="true"></div>
+
+    <div class="container">
+        <!-- основной блок приглашения -->
+        <div class="invitation-card corner-deco parchment-glow">
+            <div class="card-deco-heart" aria-hidden="true">&#9825;</div>
+            <div class="text_block">
+                <img src="img/photo/Text.png" alt="Лиза + Костя = Любовь" class="loving">
+            </div>
+            <img src="img/photo/Para.png" class="main-img reveal-scale" alt="Лиза и Костя — детство" loading="lazy" decoding="async" width="800" height="600">
+
+            <div style="text-align: center;" class="reveal delay-2">
+                <div class="love-big-quote">
+                    <i class="fas fa-heart heartbeat" style="font-size: 1.2rem;"></i> Или так вас любит! <i class="fas fa-heart heartbeat" style="font-size: 1.2rem; animation-delay: 0.3s;"></i>
+                </div>
+            </div>
+
+            <p class="invite-text reveal delay-3">
+                Поэтому приглашаем стать свидетелями <strong>нашей свадьбы</strong>, 
+                которое состоится <strong>17 июня 2026 года</strong>!
+            </p>
+
+            <!-- КАЛЕНДАРЬ -->
+            <div class="calendar-block reveal delay-4">
+                <div class="month">Июнь 2026</div>
+                <table class="calendar-table">
+                    <thead>
+                    <tr><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+                    <tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+                    <tr><td>15</td><td>16</td><td class="highlight"><span>17</span></td><td>18</td><td>19</td><td>20</td><td>21</td></tr>
+                    <tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+                    <tr><td>29</td><td>30</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    </tbody>
+                </table>
+                <div class="iloveyou">
+                    i love you <i class="fas fa-heart heartbeat" style="color:#dd8a5a;"></i>
+                </div>
+            </div>
+
+            <!-- Адрес и карта -->
+            <div class="address-block reveal delay-5">
+                <div>
+                    <i class="fas fa-map-pin"></i> <strong>Роспись:</strong> г. Подольск, п. Дубровицы, д. 65А<br>
+                    <i class="fas fa-map-pin"></i> <strong>Банкет:</strong> Кафе «Парк», пос. Дубровицы, Московская обл.
+                </div>
+                <a href="https://yandex.ru/maps/?text=Дубровицы%2C%20Подольск%2C%20д65А" target="_blank" rel="noopener noreferrer" class="map-link">
+                    <i class="fas fa-map-marked-alt"></i> посмотреть на карте
+                </a>
+                <button class="btn-copy" id="copyAddressBtn"><i class="far fa-copy"></i> Скопировать адрес</button>
+            </div>
+
+            <div class="page-placeholder reveal">
+                <i class="fas fa-book-open"></i> Page? 
+            </div>
+        </div>
+
+        <!-- Блок "Удачи нам? Да-да это мы!" -->
+        <div class="invitation-card parchment-glow reveal">
+            <div class="card-deco-heart" aria-hidden="true">&#9825;</div>
+            <div class="story-grid">
+                <div class="story-text reveal-left delay-1">
+                    <i class="fas fa-smile-wink" style="font-size: 1.8rem; color:#c28a63;"></i>
+                    <h3>Удачи нам? <span style="font-weight: 800;">Да-да, это мы!</span></h3>
+                    <p>Когда-то мы были детьми, беззаботными и весёлыми. А потом выросли, нашли друг друга... 
+                    и поняли, что хотим быть вместе навсегда!</p>
+                    <p style="margin-top: 8px;"><i class="fas fa-feather-alt"></i> Теперь создаём нашу семейную вселенную, полную нежности.</p>
+                </div>
+                <div class="story-quote reveal-right delay-3">
+                    <img src="img/photo/colaje.jpg" class="para reveal-scale" alt="Лиза и Костя" loading="lazy" decoding="async" width="400" height="500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок про пожелания -->
+        <div class="invitation-card parchment-glow reveal">
+            <div class="card-deco-heart" aria-hidden="true">&#9825;</div>
+            <h2 class="reveal-left delay-1"><i class="fas fa-gift"></i> Сердечные пожелания</h2>
+            <div class="wish-card reveal delay-2">
+                <i class="fas fa-star-of-life" style="float: right; opacity: 0.5;"></i>
+                <p><strong>Лучшая поддержка для нас</strong> — Ваши искренние пожелания и лучезарные улыбки, остальное можно поместить в конверт.</p>
+                <p style="margin-top: 8px;">💝 Будем бесконечно рады каждому тёплому слову и вашему присутствию — это самый ценный подарок.</p>
+            </div>
+
+            <div class="gorko-note reveal delay-3">
+                <i class="fas fa-comment-slash" style="font-size: 2rem; color:#b76e44;"></i>
+                <div>
+                    <strong>🙅‍♀️ Воздержитесь от криков «Горько!»</strong><br>
+                    Ведь поцелуй — это знак искренних чувств, и он не может быть по заказу. 
+                    Пусть каждый поцелуй в этот день будет от души и только по велению сердца.
+                </div>
+            </div>
+
+            <div class="wine-collect reveal delay-4">
+                <i class="fas fa-wine-bottle" style="font-size: 2rem; margin-right: 12px; vertical-align: middle;"></i>
+                <strong>А вы знали, что мы собираем коллекцию вин?</strong><br>
+                Предлагаем заменить традиционный букет цветов хорошим экземпляром для нашей семейной винотеки. 
+                Одна бутылка с историей — лучшее украшение нашего будущего бара и тёплых вечеров.
+            </div>
+        </div>
+
+        <!-- Расписание + дресс-код -->
+        <div class="invitation-card parchment-glow reveal">
+            <div class="card-deco-heart" aria-hidden="true">&#9825;</div>
+            <h2 class="reveal-left delay-1"><i class="far fa-clock"></i> Время торжества</h2>
+            <div class="timeline">
+                <div class="timeline-row reveal delay-2"><span class="time">11:40</span> <span><i class="fas fa-ring"></i> Роспись</span></div>
+                <div class="timeline-row reveal delay-3"><span class="time">12:10</span> <span><i class="fas fa-camera"></i> Прогулка с фотографом</span></div>
+                <div class="timeline-row reveal delay-4"><span class="time">13:00</span> <span><i class="fas fa-utensils"></i> Начало банкета</span></div>
+            </div>
+
+            <h3 class="reveal-left delay-3"><i class="fas fa-tshirt"></i> Дресс-код</h3>
+            <p class="reveal delay-4">Мы очень ждём и готовимся к нашему незабываемому дню! Поддержите нас Вашими улыбками и объятиями, а также красивыми нарядами в палитре мероприятия:</p>
+            <div class="dress-palette reveal-scale delay-5">
+                <div class="color-circle" style="background: #607e98;"><span class="color-tooltip">Пыльный синий</span></div>
+                <div class="color-circle" style="background: #85ba9e;"><span class="color-tooltip">Мятный</span></div>
+                <div class="color-circle" style="background: #b6cb6c;"><span class="color-tooltip">Оливковый</span></div>
+                <div class="color-circle" style="background: #B7C2B0;"><span class="color-tooltip">Шалфей</span></div>
+                <div class="color-circle" style="background: #eed59f;"><span class="color-tooltip">Песочный</span></div>
+                <div class="color-circle" style="background: #c08552;"><span class="color-tooltip">Карамель</span></div>
+            </div>
+            <p class="small-note reveal delay-5" style="font-size: 1rem; text-align: center;">✨ Нестандартные сочетания для нестандартной свадьбы ✨</p>
+        </div>
+
+        <!-- Финальное сердечное ожидание -->
+        <div class="invitation-card parchment-glow reveal" style="text-align: center;">
+            <div class="card-deco-heart" aria-hidden="true">&#9825;</div>
+            <i class="fas fa-heart heartbeat" style="color: #dc8a5a; font-size: 2rem;"></i>
+            <p class="reveal delay-2" style="font-size: 1.3rem; font-weight: 500; margin: 0.5rem 0;">С нетерпением ждем Вас на нашем празднике любви!</p>
+            <div class="signature reveal-scale delay-3">
+                Ваши Лиза и Костя
+            </div>
+            <hr class="reveal delay-4">
+            <div class="page-placeholder reveal delay-5" style="margin-top: 0;">
+                <i class="fas fa-camera-retro"></i> Сохраните это приглашение · 17.06.2026
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
